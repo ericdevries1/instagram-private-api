@@ -4,7 +4,9 @@
   "version": "0.8.20",
   "main": "dist/index.js",
   "files": [
-    "dist"
+    "src",
+    "tsconfig.json",
+    "tsconfig.build.json"
   ],
   "license": "MIT",
   "engines": {
