@@ -289,6 +289,7 @@ export class Request {
       const rawResponse = await this.sendAndGetRaw(options);
       const parsedResponse = this.parseMiddleware(rawResponse);
       const json = parsedResponse.body;
+      // @ts-ignore
       if (_.isObject(json) && json.status === 'ok') return _.omit(parsedResponse.body, 'status');
       if (_.isString(json.message) && json.message.toLowerCase().includes('transcode timeout'))
         throw new Exceptions.TranscodeTimeoutError();

@@ -55,7 +55,9 @@ export class ActionSpamError extends APIError {
   }
 
   getBlockTime() {
+    // @ts-ignore
     if (_.isObject(this.json) && _.isString(this.json.feedback_message)) {
+      // @ts-ignore
       const hours = this.json.feedback_message.match(/(\d+)(\s)*hour(s)/);
       if (!hours || !_.isArray(hours)) return 0;
       const blockTime = parseInt(hours[1]) * 60 * 60 * 1000;
