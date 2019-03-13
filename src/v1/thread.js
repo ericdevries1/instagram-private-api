@@ -1,14 +1,14 @@
 import { plainToClass } from 'class-transformer';
 import { User } from '../models/user';
-import { Request } from '../request';
+import { Request } from '../core/request';
+import { Helpers } from '../helpers';
 
 const _ = require('lodash');
 const Resource = require('./resource');
 const Promise = require('bluebird');
 const camelKeys = require('camelcase-keys');
 const ThreadItem = require('./thread-item');
-const Exceptions = require('../exceptions');
-const Helpers = require('../helpers');
+const Exceptions = require('../core/exceptions');
 
 class Thread extends Resource {
   static approveAll (session) {

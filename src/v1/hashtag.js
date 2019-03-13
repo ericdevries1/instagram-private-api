@@ -1,8 +1,9 @@
+import { Request } from '../core/request';
+import { Helpers } from '../helpers';
+
 const _ = require('lodash');
 const Resource = require('./resource');
 const camelKeys = require('camelcase-keys');
-const { Request } = require('../request');
-const Helpers = require('../helpers');
 
 class Hashtag extends Resource {
   static search (session, query) {

@@ -1,10 +1,11 @@
+import { Helpers } from '../helpers';
+
 const _ = require('lodash');
 const Resource = require('./resource');
 const camelKeys = require('camelcase-keys');
-const { Request } = require('../request');
-const Helpers = require('../helpers');
+const { Request } = require('../core/request');
 const Media = require('./media').Media;
-const Exceptions = require('../exceptions');
+const Exceptions = require('../core/exceptions');
 
 class Location extends Resource {
   static getRankedMedia (session, locationId) {
