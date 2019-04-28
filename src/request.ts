@@ -14,6 +14,7 @@ process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0';
 
 export class Request {
   static requestClient: any = request.defaults({});
+  static timeout?: number = null;
   _request: any;
   protected _resource: any;
   private _signData: boolean;
@@ -86,6 +87,7 @@ export class Request {
   static setTimeout(ms) {
     const object = { timeout: parseInt(ms) };
     Request.requestClient = request.defaults(object);
+    Request.timeout = parseInt(ms);
   }
 
   static setProxy(proxyUrl) {
@@ -237,6 +239,7 @@ export class Request {
         url: this.url,
         resolveWithFullResponse: true,
         headers: this._request.headers,
+        timeout: Request.timeout,
       },
       options || {},
       this._request.options,
