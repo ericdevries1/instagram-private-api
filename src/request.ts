@@ -323,7 +323,6 @@ export class Request {
   sendAndGetRaw(options = {}) {
     const preparedData = this._prepareData();
     const requestOptions = this._transform(_.defaults(this._mergeOptions(options), preparedData));
-    console.log('request timeout', requestOptions.timeout);
     return Request.requestClient(requestOptions);
   }
 }
